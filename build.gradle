@@ -4,15 +4,20 @@ buildscript {
 	}
 	repositories {
 		mavenCentral()
+		//maven {
+			//url "https://plugins.gradle.org/m2/"
+		  //}
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+		//classpath("io.spring.gradle:dependency-managementplugin:0.5.6.RELEASE")
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot' 
+//apply plugin: 'io.spring.dependency-management'
 
 jar {
 	baseName = 'masterSpringMvc'
@@ -28,6 +33,10 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-social-twitter')
+	compile('org.webjars:materializecss:0.96.0')
+	compile('org.webjars:jquery:2.1.4')
 	testCompile('org.springframework.boot:spring-boot-starter-test') 
 }
 
