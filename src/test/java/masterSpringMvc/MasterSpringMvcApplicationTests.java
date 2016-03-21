@@ -13,6 +13,7 @@ public class MasterSpringMvcApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		
 	}
 
 }
