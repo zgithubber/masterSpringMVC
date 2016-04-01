@@ -12,6 +12,15 @@ public class User {
 	private LocalDate birthDate;
 	@JsonProperty("tastes")
 	private List<String> tastes = new ArrayList<>();
+	
+	public User() {
+	}
+	
+	public User(String email) {
+		super();
+		this.email = email;
+	}
+
 
 	// Getters and setters for all fields
 	public String getTwitterHandle() {

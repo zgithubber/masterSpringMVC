@@ -1,7 +1,7 @@
 package masterSpringMvc.search.api;
 
 import masterSpringMvc.search.LightTweet;
-import masterSpringMvc.search.SearchService;
+import masterSpringMvc.search.TwitterSearch;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +12,10 @@ import java.util.List;
 @RequestMapping("/api/search")
 public class SearchApiController {
 	
-	private SearchService searchService;
+	private TwitterSearch searchService;
 
 	@Autowired
-	public SearchApiController(SearchService searchService) {
+	public SearchApiController(TwitterSearch searchService) {
 		this.searchService = searchService;
 	}
 
