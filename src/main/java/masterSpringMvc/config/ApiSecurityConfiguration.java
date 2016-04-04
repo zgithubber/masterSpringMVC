@@ -19,10 +19,21 @@ public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.roles("USER", "ADMIN");
 	}
 
+	/*
+	 * @Override protected void configure(HttpSecurity http) throws Exception {
+	 * http.antMatcher("/api/**").httpBasic().and().csrf().disable()
+	 * .authorizeRequests().antMatchers(HttpMethod.GET)
+	 * .hasRole("USER").antMatchers(HttpMethod.POST).hasRole("ADMIN")
+	 * .antMatchers(HttpMethod.PUT).hasRole("ADMIN")
+	 * .antMatchers(HttpMethod.DELETE).hasRole("ADMIN").anyRequest()
+	 * .authenticated(); }
+	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.antMatcher("/api/**").httpBasic().and().csrf().disable()
-				.authorizeRequests().antMatchers(HttpMethod.GET)
+		http.antMatcher("/api/**")
+				// This is just an example – not required in our case
+				.headers().cacheControl().disable().and().csrf()
+				.disable().authorizeRequests().antMatchers(HttpMethod.GET)
 				.hasRole("USER").antMatchers(HttpMethod.POST).hasRole("ADMIN")
 				.antMatchers(HttpMethod.PUT).hasRole("ADMIN")
 				.antMatchers(HttpMethod.DELETE).hasRole("ADMIN").anyRequest()

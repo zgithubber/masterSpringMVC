@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -80,5 +81,13 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 	public Docket userApi() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.paths(path -> path.startsWith("/api/")).build();
+	}
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		// This is just an example
+		registry.addResourceHandler("/img/**")
+				.addResourceLocations("classpath:/static/images/")
+				.setCachePeriod(12);
 	}
 }
