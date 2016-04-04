@@ -4,13 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class User {
 	private String twitterHandle;
 	private String email;
 	private LocalDate birthDate;
-	@JsonProperty("tastes")
 	private List<String> tastes = new ArrayList<>();
 	
 	public User() {
